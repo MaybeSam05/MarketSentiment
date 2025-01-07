@@ -12,6 +12,8 @@ def main():
     fetch_articles(company)
 
 def fetch_articles(company_name):
+    my_dict = {}
+    
     articles = newsapi.get_everything(
         q=company_name,
         from_param='2025-01-01',  # Start date
@@ -25,9 +27,12 @@ def fetch_articles(company_name):
         if (article['title'] != "[Removed]") and any(domain in article['url'] for domain in domains):
             print(f"Title: {article['title']}")
             print(f"URL: {article['url']}\n")
+            my_dict[article['title']] = article['url']
             count += 1
             if count == 5:  # Stop after 5 iterations
                 break
+    
+    return my_dict
 
 if __name__ == "__main__":
     main()
