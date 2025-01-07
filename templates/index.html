@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Market Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <div class="min-h-screen py-12 px-4">
+      <div class="max-w-md mx-auto space-y-8">
+        <div class="text-center">
+          <h1 class="text-4xl font-bold">Market Sentiment Analysis</h1>
+          <p class="mt-4 text-lg">Analyze market sentiment for any publicly traded company</p>
+        </div>
+
+        <div class="glass-card p-8 space-y-6">
+          <form action="/" method="POST" class="space-y-6">
+            <div class="space-y-2">
+              <label for="company">Company Name</label>
+              <input type="text" id="company" name="company" required placeholder="Enter company name" class="form-input">
+            </div>
+
+            <div class="space-y-2">
+              <label for="startDate">Start Date</label>
+              <input type="date" id="startDate" name="startDate" required class="form-input">
+            </div>
+
+            <div class="space-y-2">
+              <label for="endDate">End Date</label>
+              <input type="date" id="endDate" name="endDate" required class="form-input">
+            </div>
+
+            <button type="submit" class="submit-button">Analyze Sentiment</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

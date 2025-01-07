@@ -11,12 +11,12 @@ newsapi = NewsApiClient(os.getenv("NEWS_API_KEY"))
 
 
 def main():
-    company = "Tesla" # customizable
-    start = "2024-12-25" # customizable
-    end = "2025-01-05" # customizable
+    company = "Tesla" # put company here
+    start = "2024-12-25" # put start date here
+    end = "2025-01-05" # put end date here
     domains = ["cnn.com", "bbc.com", "nytimes.com", "bloomberg.com", "cnbc.com", "investopedia.com",
     "ft.com", "seekingalpha.com", "businessinsider.com", "zacks.com", "benzinga.com", "investing.com",
-    "economist.com", "nasdaq.com", "kiplinger.com", "fool.com", "marketplace.org"] # not customizable
+    "economist.com", "nasdaq.com", "kiplinger.com", "fool.com", "marketplace.org"]
     
     headlinesToLinks = (fetch_articles(company, domains, start, end))
     titlesToContent = read_articles(headlinesToLinks)

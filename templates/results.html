@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentiment Analysis Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <div class="min-h-screen py-12 px-4">
+      <div class="max-w-2xl mx-auto space-y-8">
+        <div class="text-center">
+          <h1 class="text-3xl font-bold">Sentiment Analysis Results</h1>
+          <p class="mt-2 text-lg">For {{ company }}</p>
+        </div>
+
+        <div class="glass-card p-8 rounded-xl">
+          <h2 class="text-xl font-semibold mb-4">Articles Sentiment Summary</h2>
+          {% for count, article in enumerate(results, start=1) %}
+            <div class="article-result mb-6">
+              <h3>Article {{ count }}: {{ article['title'] }}</h3>
+              <ul>
+                <li>Negative: {{ article['negative'] }}%</li>
+                <li>Neutral: {{ article['neutral'] }}%</li>
+                <li>Positive: {{ article['positive'] }}%</li>
+                <li>Overall Sentiment: {{ article['overall'] }}</li>
+              </ul>
+            </div>
+          {% endfor %}
+
+          <h2 class="text-xl font-semibold mt-8">Overall Sentiment Score: {{ overall_sentiment }}</h2>
+        </div>
+
+        <div class="text-center mt-6">
+          <a href="/" class="text-blue-500 underline">Analyze another company</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
