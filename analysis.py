@@ -18,18 +18,9 @@ def main():
     "ft.com", "seekingalpha.com", "businessinsider.com", "zacks.com", "benzinga.com", "investing.com",
     "economist.com", "nasdaq.com", "kiplinger.com", "fool.com", "marketplace.org"] # not customizable
     
-    #headlinesToLinks = (fetch_articles(company, domains, start, end))
-    #titlesToContent = read_articles(headlinesToLinks)
-    #sentiments = analyze_sentiment(titlesToContent)
-
-    sentiments = {
-        'Tesla could see 40% of its profits evaporate when Trump takes office, JPMorgan warns': {'neg': 0.058, 'neu': 0.87, 'pos': 0.072, 'compound': 0.7753}, 
-        'Tesla Cybertruck that exploded and the New Orleans attack vehicle were both reportedly rented using the Turo app': {'neg': 0.105, 'neu': 0.821, 'pos': 0.075, 'compound': -0.9852},
-        "Tesla shows it's not immune to the EV slowdown": {'neg': 0.061, 'neu': 0.837, 'pos': 0.102, 'compound': 0.8567},
-        'The most popular cars of 2024: It was the year of the hybrid.': {'neg': 0.008, 'neu': 0.812, 'pos': 0.18, 'compound': 0.9953},
-        "BYD makes much more than cars. These 5 side hustles also helped turn the Chinese EV giant into a challenger to Elon Musk's Tesla.": {'neg': 0.005, 'neu': 0.918, 'pos': 0.077, 'compound': 0.996}
-    }
-
+    headlinesToLinks = (fetch_articles(company, domains, start, end))
+    titlesToContent = read_articles(headlinesToLinks)
+    sentiments = analyze_sentiment(titlesToContent)
     format_sentiment(company, sentiments)
 
 def fetch_articles(company_name, domains, start, end):
