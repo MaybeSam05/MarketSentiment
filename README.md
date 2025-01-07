@@ -20,6 +20,7 @@ This Python script fetches recent news articles about a specified company, extra
 
 2. Install the required packages:
 - pip install newsapi-python
+- pip install flask
 - pip install python-dotenv
 - pip install newspaper3k
 - pip install nltk
