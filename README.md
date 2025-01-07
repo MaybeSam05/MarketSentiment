@@ -2,13 +2,13 @@
 
 This Python script fetches recent news articles about a specified company, extracts their content, and performs sentiment analysis using the VADER sentiment analysis tool. The results provide an overview of how positively, negatively, or neutrally the company has been portrayed in the selected news sources.
 
-<h2>Features<h2>
+<h2>Features</h2>
 - Fetches up to 5 relevant articles for a specified company from multiple reputable domains.
 - Extracts the full content of each article using the newspaper library.
 - Analyzes the sentiment of the articles using VADER SentimentIntensityAnalyzer.
 - Summarizes and formats sentiment scores for easy interpretation.
 
-<h2>Requirements<h2>
+<h2>Requirements</h2>
 - Python 3.7+
 - NewsAPI key (free or paid subscription)
 - .env file to store your NewsAPI key
