@@ -4,6 +4,7 @@
 - pip install nltk TODO
 - pip install lxml TODO
 - pip install lxml_html_clean
+- pip install vaderSentiment
 
 
 Websites that don’t work: 

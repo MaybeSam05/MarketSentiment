@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import os
 import sys
 from newspaper import Article
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 load_dotenv()
 
@@ -19,6 +20,9 @@ def main():
     
     headlinesToLinks = (fetch_articles(company, domains, start, end))
     titlesToContent = read_articles(headlinesToLinks)
+    sentiments = analyze_sentiment(titlesToContent)
+
+    print(sentiments)
 
 def fetch_articles(company_name, domains, start, end):
     my_dict = {}
@@ -53,6 +57,15 @@ def read_articles(my_dict):
         articleToContent[key] = article.text
 
     return articleToContent
+
+def analyze_sentiment(my_dict):
+    analyzer = SentimentIntensityAnalyzer()
+    articleToSentiment = {}
+    
+    for key, text in my_dict.items():
+        articleToSentiment[key] = analyzer.polarity_scores(text)
+
+    return articleToSentiment
 
 if __name__ == "__main__":
     main()
