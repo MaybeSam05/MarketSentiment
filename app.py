@@ -49,12 +49,20 @@ def sentiment_analysis():
 
         overall_sentiment = f"{overall_sentiment_score / len(results):.2f}"
 
+        if float(overall_sentiment) > 0:
+            sentimentText = "Positive Sentiment"
+        elif float(overall_sentiment) == 0:
+            sentimentText = "Neutral Sentiment"
+        else:
+            sentimentText = "Negative Sentiment"
+
         # Render the results page
         return render_template(
             'results.html',
             company=company,
             results=results,
             overall_sentiment=overall_sentiment,
+            sentimentText=sentimentText,
             enumerate=enumerate  # Pass enumerate to the template
         )
 
