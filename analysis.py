@@ -73,12 +73,12 @@ def format_sentiment(company, my_dict):
     count = 1
     for key, value in my_dict.items():
         print(f"\nArticle {count}: {key}")
-        print("Sentence was rated as ", value['neg']*100, "% Negative")
-        print("Sentence was rated as ", value['neu']*100, "% Neutral")
-        print("Sentence was rated as ", value['pos']*100, "% Neutral")
+        print("Article was rated as ", value['neg']*100, "% Negative")
+        print("Article was rated as ", value['neu']*100, "% Neutral")
+        print("Article was rated as ", value['pos']*100, "% Neutral")
         
         totalSent += value['compound']
-        print("Sentence Overall Rated As", end=" ")
+        print("Article Overall Rated As", end=" ")
         if value['compound'] >= 0.05 :
             print("Positive")
         elif value['compound'] <= -0.05 :
