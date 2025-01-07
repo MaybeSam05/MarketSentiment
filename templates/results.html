@@ -7,33 +7,43 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body>
-    <div class="min-h-screen py-12 px-4">
-      <div class="max-w-2xl mx-auto space-y-8">
+    <div class="min-h-screen py-12 px-4 bg-gray-50">
+      <div class="max-w-3xl mx-auto space-y-12">
+        
+        <!-- Header Section -->
         <div class="text-center">
-          <h1 class="text-3xl font-bold">Sentiment Analysis Results</h1>
-          <p class="mt-2 text-lg">For {{ company }}</p>
+          <h1 class="text-4xl font-bold text-gray-900">Sentiment Analysis Results</h1>
+          <p class="mt-2 text-lg text-gray-600">For <span class="font-semibold">{{ company }}</span></p>
         </div>
 
+        <!-- Articles Sentiment Summary Section -->
         <div class="glass-card p-8 rounded-xl">
-          <h2 class="text-xl font-semibold mb-4">Articles Sentiment Summary</h2>
+          <h2 class="text-2xl font-semibold mb-6">Articles Sentiment Summary</h2>
+
           {% for count, article in enumerate(results, start=1) %}
-            <div class="article-result mb-6">
-              <h3>Article {{ count }}: {{ article['title'] }}</h3>
-              <ul>
-                <li>Negative: {{ article['negative'] }}%</li>
-                <li>Neutral: {{ article['neutral'] }}%</li>
-                <li>Positive: {{ article['positive'] }}%</li>
-                <li>Overall Sentiment: {{ article['overall'] }}</li>
-              </ul>
-            </div>
+          <div class="article-result mb-6 p-6 rounded-lg border border-gray-200 shadow-sm bg-white">
+            <h3 class="text-lg font-medium text-gray-800">Article {{ count }}: {{ article['title'] }}</h3>
+            <ul class="mt-4 space-y-1 text-sm">
+              <li><strong>Negative:</strong> {{ article['negative'] }}%</li>
+              <li><strong>Neutral:</strong> {{ article['neutral'] }}%</li>
+              <li><strong>Positive:</strong> {{ article['positive'] }}%</li>
+              <li><strong>Overall Sentiment:</strong> {{ article['overall'] }}</li>
+            </ul>
+          </div>
           {% endfor %}
-
-          <h2 class="text-xl font-semibold mt-8">Overall Sentiment Score: {{ overall_sentiment }}</h2>
         </div>
 
-        <div class="text-center mt-6">
-          <a href="/" class="text-blue-500 underline">Analyze another company</a>
+        <!-- Overall Sentiment Score Section -->
+        <div class="text-center">
+          <h2 class="text-2xl font-semibold">Overall Sentiment Score</h2>
+          <p class="mt-2 text-xl text-green-600 font-bold">{{ overall_sentiment }}</p>
         </div>
+
+        <!-- Footer Section -->
+        <div class="text-center mt-8">
+          <a href="/" class="text-blue-500 underline hover:text-blue-700">Analyze another company</a>
+        </div>
+
       </div>
     </div>
   </body>
