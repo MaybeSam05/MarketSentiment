@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from sentiment_analysis import fetch_articles, read_articles, analyze_sentiment
-from datetime import datetime
+from datetime import datetime, timedelta
 
 app = Flask(__name__)
 
@@ -9,12 +9,10 @@ def sentiment_analysis():
     if request.method == 'POST':
         # Get form data
         company = request.form['company']
-        start_date = request.form['startDate']
-        end_date = request.form['endDate']
 
-        # Convert dates to YYYY-MM-DD format
-        start_date = datetime.strptime(start_date, '%Y-%m-%d').strftime('%Y-%m-%d')
-        end_date = datetime.strptime(end_date, '%Y-%m-%d').strftime('%Y-%m-%d')
+        # Set date range to last 30 days
+        end_date = datetime.now().strftime('%Y-%m-%d')
+        start_date = (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
 
         # Define domains to search
         domains = [
