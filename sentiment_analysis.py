@@ -14,7 +14,7 @@ def fetch_articles(company_name, domains, start, end):
         from_param=start,
         to=end,
         language='en',
-        sort_by='relevancy'
+        sort_by='relevancy' # Check if this is the best way to sort the articles
     )
     count = 0
     for article in articles['articles']:
